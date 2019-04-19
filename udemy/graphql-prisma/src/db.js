@@ -1,9 +1,9 @@
 const users = [
   {
     id: '1',
-    name: 'Nick',
-    email: 'nick@gmail.com',
-    age: 25
+    name: 'Andrew',
+    email: 'andrew@example.com',
+    age: 27
   },
   {
     id: '2',
@@ -12,53 +12,59 @@ const users = [
   },
   {
     id: '3',
-    name: 'Dave',
-    email: 'dave@example.com'
+    name: 'Mike',
+    email: 'mike@example.com'
   }
 ];
 
 const posts = [
   {
-    id: '1',
-    title: 'The title',
-    body: "Here's some more info",
+    id: '10',
+    title: 'GraphQL 101',
+    body: 'This is how to use GraphQL...',
     published: true,
     author: '1'
   },
   {
-    id: '2',
-    title: 'Lambda School',
-    body: 'Learn to learn',
+    id: '11',
+    title: 'GraphQL 201',
+    body: 'This is an advanced GraphQL post...',
     published: false,
     author: '1'
   },
   {
-    id: '3',
-    title: 'Python',
-    body: 'Old Monty',
-    published: false,
+    id: '12',
+    title: 'Programming Music',
+    body: '',
+    published: true,
     author: '2'
   }
 ];
 
 const comments = [
   {
-    id: '1',
-    text: 'What a great comment',
+    id: '102',
+    text: 'This worked well for me. Thanks!',
     author: '3',
-    post: '2'
+    post: '10'
   },
   {
-    id: '2',
-    text: "Commenting away like nobody's business",
-    author: '3',
-    post: '1'
-  },
-  {
-    id: '3',
-    text: 'Comment here, comment there',
+    id: '103',
+    text: 'Glad you enjoyed it.',
     author: '1',
-    post: '1'
+    post: '10'
+  },
+  {
+    id: '104',
+    text: 'This did no work.',
+    author: '2',
+    post: '11'
+  },
+  {
+    id: '105',
+    text: 'Nevermind. I got it to work.',
+    author: '1',
+    post: '12'
   }
 ];
 

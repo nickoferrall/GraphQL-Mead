@@ -176,7 +176,6 @@ const Mutation = {
     };
 
     db.comments.push(comment);
-
     pubsub.publish(`comment ${args.data.post}`, {
       comment: {
         mutation: 'CREATED',
@@ -196,7 +195,6 @@ const Mutation = {
     }
 
     const [deletedComment] = db.comments.splice(commentIndex, 1);
-
     pubsub.publish(`comment ${deletedComment.post}`, {
       comment: {
         mutation: 'DELETED',
