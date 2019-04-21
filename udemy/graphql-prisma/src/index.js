@@ -20,10 +20,14 @@ const server = new GraphQLServer({
     Post,
     Comment
   },
-  context: {
-    db,
-    pubsub,
-    prisma
+  context(request) {
+    console.log('DAWGG', request.request.headers);
+    return {
+      db,
+      pubsub,
+      prisma,
+      request
+    };
   }
 });
 
