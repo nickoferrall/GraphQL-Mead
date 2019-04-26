@@ -2,7 +2,11 @@ import getUserId from '../utils/getUserId';
 
 const Query = {
   users(parent, args, { prisma }, info) {
-    const opArgs = {};
+    const opArgs = {
+      first: args.first,
+      skip: args.skip,
+      after: args.after
+    };
 
     if (args.query) {
       opArgs.where = {
@@ -41,10 +45,13 @@ const Query = {
 
     return prisma.query.posts(opArgs, info);
   },
-  posts(parent, args, { prisma, request }, info) {
+  posts(parent, args, { prisma }, info) {
     const opArgs = {
+      first: args.first,
+      skip: args.skip,
+      after: args.after,
       where: {
-        published: false
+        published: true
       }
     };
 
