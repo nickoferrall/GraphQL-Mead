@@ -1,3 +1,2 @@
-endpoint: ${env:PRISMA_ENDPOINT}
+endpoint: http://localhost:4466
 datamodel: datamodel.graphql
-secret: ${env:PRISMA_SECRET}
