@@ -12,7 +12,7 @@ var _jsonwebtoken2 = _interopRequireDefault(_jsonwebtoken);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var generateToken = function generateToken(userId) {
-  return _jsonwebtoken2.default.sign({ userId: userId }, 'thisisasecret', {
+  return _jsonwebtoken2.default.sign({ userId: userId }, process.env.JWT_SECRET, {
     expiresIn: '7 days'
   });
 };

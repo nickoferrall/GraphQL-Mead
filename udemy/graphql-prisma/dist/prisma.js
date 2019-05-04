@@ -11,8 +11,8 @@ var _index = require('./resolvers/index');
 
 var prisma = new _prismaBinding.Prisma({
   typeDefs: 'src/generated/prisma.graphql',
-  endpoint: 'http://localhost:4466',
-  secret: 'supersecrettext',
+  endpoint: process.env.PRISMA_ENDPOINT,
+  secret: process.env.PRISMA_SECRET,
   fragmentReplacements: _index.fragmentReplacements
 });
 

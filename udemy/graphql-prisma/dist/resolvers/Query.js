@@ -97,51 +97,29 @@ var Query = {
 
     return prisma.query.comments(null, info);
   },
-  me: function () {
-    var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(parent, args, _ref5, info) {
-      var prisma = _ref5.prisma,
-          request = _ref5.request;
-      var userId;
+  me: function me(parent, args, _ref5, info) {
+    var prisma = _ref5.prisma,
+        request = _ref5.request;
+
+    var userId = (0, _getUserId2.default)(request);
+
+    return prisma.query.user({
+      where: {
+        id: userId
+      }
+    });
+  },
+  post: function () {
+    var _ref7 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(parent, args, _ref6, info) {
+      var prisma = _ref6.prisma,
+          request = _ref6.request;
+      var userId, posts;
       return regeneratorRuntime.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              userId = (0, _getUserId2.default)(request);
-              _context.next = 3;
-              return prisma.query.user({
-                where: {
-                  id: userId
-                }
-              });
-
-            case 3:
-              return _context.abrupt('return', _context.sent);
-
-            case 4:
-            case 'end':
-              return _context.stop();
-          }
-        }
-      }, _callee, this);
-    }));
-
-    function me(_x, _x2, _x3, _x4) {
-      return _ref6.apply(this, arguments);
-    }
-
-    return me;
-  }(),
-  post: function () {
-    var _ref8 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(parent, args, _ref7, info) {
-      var prisma = _ref7.prisma,
-          request = _ref7.request;
-      var userId, posts;
-      return regeneratorRuntime.wrap(function _callee2$(_context2) {
-        while (1) {
-          switch (_context2.prev = _context2.next) {
-            case 0:
               userId = (0, _getUserId2.default)(request, false);
-              _context2.next = 3;
+              _context.next = 3;
               return prisma.query.posts({
                 where: {
                   id: args.id,
@@ -156,28 +134,28 @@ var Query = {
               }, info);
 
             case 3:
-              posts = _context2.sent;
+              posts = _context.sent;
 
               if (!(posts.length === 0)) {
-                _context2.next = 6;
+                _context.next = 6;
                 break;
               }
 
               throw new Error('Post not found');
 
             case 6:
-              return _context2.abrupt('return', posts[0]);
+              return _context.abrupt('return', posts[0]);
 
             case 7:
             case 'end':
-              return _context2.stop();
+              return _context.stop();
           }
         }
-      }, _callee2, this);
+      }, _callee, this);
     }));
 
-    function post(_x5, _x6, _x7, _x8) {
-      return _ref8.apply(this, arguments);
+    function post(_x, _x2, _x3, _x4) {
+      return _ref7.apply(this, arguments);
     }
 
     return post;
