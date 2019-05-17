@@ -85,10 +85,10 @@ const Query = {
     return prisma.query.comments(null, info);
   },
 
-  me(parent, args, { prisma, request }, info) {
+  async me(parent, args, { prisma, request }, info) {
     const userId = getUserId(request);
 
-    return prisma.query.user({
+    return await prisma.query.user({
       where: {
         id: userId
       }
